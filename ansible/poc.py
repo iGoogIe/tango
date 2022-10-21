@@ -24,15 +24,12 @@ class Tango():
         }
         return headers
 
-    def get_customers(self):
+    def get_customers(self) -> dict:
         try:
             response = requests.get(
-                url=f"{self.BASE_URL}/customers", 
-                auth=(
-                    self.PLATFORM_NAME, 
-                    self.PLATFORM_KEY
-                ),
-                timeout=10
+                url = f"{self.BASE_URL}/customers", 
+                auth = self.auth,
+                timeout = 10
             )
 
             if response.status_code == 200:
