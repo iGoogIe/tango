@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  
+  tasks:
+    - name: trigger create_customer
+      get_customers:
+      register: result
+
+    - debug: var=result
