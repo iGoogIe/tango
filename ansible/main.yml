@@ -2,8 +2,34 @@
 - hosts: localhost
   
   tasks:
-    - name: trigger create_customer
-      get_customers:
-      register: result
+    - name: List and Filter Customers
+      create_customer:
+        customer_id: cust-id-here
+        display_name: display-name-here
+      register: get_customers_result
 
-    - debug: var=result
+    - debug: var=get_customers_result
+
+    - name: Create a Customer
+      create_customer:
+        customer_id: cust-id-here
+        display_name: display-name-here
+      register: create_customer_result
+
+    - debug: var=create_customer_result
+
+    - name: Describe a Customer
+      describe_customer:
+        customer_id: cust-id-here
+      register: describe_customer_result
+
+    - debug: var=describe_customer_result
+
+    - name: Create an Account
+      create_account:
+        customer_id: tester1
+        account: tester7account
+        email: tester7@yahoo.com
+      register: create_account_result
+
+    - debug: var=create_account_result
