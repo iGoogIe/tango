@@ -55,17 +55,17 @@ pip install -r tango_role/requirements.txt
 | Register a Credit Card to a Customer/Account | register_credit_card | see tango_role/vars/main.yml |
 
 
-###Run the Ansible Playbook with tags targeting what action(s) you want to take.
+### Run the Ansible Playbook with tags targeting what action(s) you want to take.
 
 ```
 ansible-playbook runner.yml --tags "get_customers,create_customer”
 ```
 
-###Variables can be defined in tango/tango_role/vars/main.yml
+### Variables can be defined in tango/tango_role/vars/main.yml
 
 - These variables are consumed by the ansible tasks that are ran
 
-###Variables can (optionally) be defined via command line as extra vars
+### Variables can (optionally) be defined via command line as extra vars
 
 ```
 ansible-playbook runner.yml -e "customer_id=random_customer_id" --tags describe_customer
