@@ -33,8 +33,10 @@
   import_tasks: describe_account.yml
   tags:
     - describe_account
+    - never
 
 - name: import register_credit_card
   import_tasks: register_credit_card.yml
   tags:
     - register_credit_card
+    - never
