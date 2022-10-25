@@ -1,0 +1,8 @@
+---
+- name: Create a Customer
+  create_customer:
+    customer_id: "{{ customer_id }}"
+    display_name: "{{ display_name }}"
+  register: create_customer_result
+
+- debug: var=create_customer_result

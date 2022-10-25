@@ -1,0 +1,7 @@
+---
+- name: Describe Account
+  describe_account:
+    account: "{{ account }}"
+  register: describe_account_result
+
+- debug: var=describe_account_result

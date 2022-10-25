@@ -1,0 +1,7 @@
+---
+- name: Describe a Customer
+  describe_customer:
+    customer_id: "{{ customer_id }}"
+  register: describe_customer_result
+
+- debug: var=describe_customer_result

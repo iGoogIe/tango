@@ -1,0 +1,40 @@
+---
+- name: Import get_customers
+  import_tasks: get_customers.yml
+  tags:
+    - get_customers
+    - never
+
+- name: Import create_customer
+  import_tasks: create_customer.yml
+  tags:
+    - create_customer
+    - never
+
+- name: Import describe_customer
+  import_tasks: describe_customer.yml
+  tags:
+    - describe_customer
+    - never
+
+- name: Import create_account
+  import_tasks: create_account.yml
+  tags:
+    - create_account
+    - never
+
+- name: Import get_accounts
+  import_tasks: get_accounts.yml
+  tags:
+    - get_accounts
+    - never
+
+- name: Import describe_account
+  import_tasks: describe_account.yml
+  tags:
+    - describe_account
+
+- name: import register_credit_card
+  import_tasks: register_credit_card.yml
+  tags:
+    - register_credit_card

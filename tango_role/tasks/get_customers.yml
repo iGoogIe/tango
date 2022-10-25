@@ -1,0 +1,6 @@
+---
+- name: Get Customers
+  get_customers:
+  register: get_customers_result
+
+- debug: var=get_customers_result

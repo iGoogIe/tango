@@ -1,0 +1,77 @@
+---
+- hosts: localhost
+  
+  tasks:
+    - name: Get Total Customers
+      get_customers:
+      register: get_customers_result
+
+    - debug: var=get_customers_result
+
+    - name: Create a Customer
+      create_customer:
+        customer_id: cust-id-here
+        display_name: display-name-here
+      register: create_customer_result
+
+    - debug: var=create_customer_result
+
+    - name: Describe a Customer
+      describe_customer:
+        customer_id: cust-id-here
+      register: describe_customer_result
+
+    - debug: var=describe_customer_result
+
+    - name: Create an Account
+      create_account:
+        customer_id: tester1
+        account: tester7account
+        email: tester7@yahoo.com
+      register: create_account_result
+
+    - debug: var=create_account_result
+
+    - name: Get Total Accounts
+      get_accounts:
+      register: get_accounts_result
+
+    - debug: var=get_accounts_result
+
+    - name: Describe Account
+      describe_account:
+        account: tester7account
+      register: describe_account_result
+
+    - debug: var=describe_account_result
+
+    - name: Register Credit Card
+      register_credit_card:
+        customer_id: "tester1"
+        account: "tester7account"
+        label: "tester1_label"
+        ip_address: "206.251.215.152"
+        card_number: "visa"
+        card_expiration: "2025-12"
+        card_verification_number: "123"
+        billing_first_name: "first"
+        billing_last_name: "last"
+        billing_address_line1: "address"
+        billing_city: "city"
+        billing_state: "tennessee"
+        billing_postal: "37167"
+        billing_country: "us"
+        billing_email: "bob@yahoo.com"
+        contact_full_name: "contact_full_name"
+        contact_email: "bobs_friend@yahoo.com"
+      register: register_credit_card_result
+
+    - debug: var=register_credit_card_result
+
+    - name: Set Fact for Register Credit Card Token
+      set_fact:
+        credit_token: "{{ register_credit_card_result.result.token }}"
+
+    - name: Debug Credit Card Token
+      debug:
+        var: credit_token

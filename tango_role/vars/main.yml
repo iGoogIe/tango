@@ -1,0 +1,22 @@
+---
+customer_id: "bobbyjones"
+display_name: "input_display_name"
+account: "inputaccount"
+email: "inputaccount@email.com"
+
+# for registering a credit card
+label: "tester1_label"
+ip_address: "0.0.0.0"
+card_number: "visa"
+card_expiration: "2025-12"
+card_verification_number: "123"
+billing_first_name: "first"
+billing_last_name: "last"
+billing_address_line1: "address"
+billing_city: "city"
+billing_state: "tennessee"
+billing_postal: "37167"
+billing_country: "us"
+billing_email: "bob@yahoo.com"
+contact_full_name: "contact_full_name"
+contact_email: "bobs_friend@yahoo.com"

@@ -1,0 +1,6 @@
+---
+- name: Get Total Accounts
+  get_accounts:
+  register: get_accounts_result
+
+- debug: var=get_accounts_result

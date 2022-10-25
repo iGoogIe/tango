@@ -1,0 +1,9 @@
+---
+- name: Create an Account
+  create_account:
+    customer_id: "{{ customer_id }}"
+    account: "{{ account }}"
+    email: "{{ email }}"
+  register: create_account_result
+
+- debug: var=create_account_result
