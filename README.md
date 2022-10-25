@@ -60,10 +60,12 @@ pip install -r tango_role/requirements.txt
 ```
 ansible-playbook runner.yml --tags "get_customers,create_customer”
 ```
+- Note, the tags and task descriptions are defined in the table above
 
 ### Variables can be defined in tango/tango_role/vars/main.yml
 
 - These variables are consumed by the ansible tasks that are ran
+- In the table above, the variables necessary are defined in the Vars Column
 
 ### Variables can (optionally) be defined via command line as extra vars
 
