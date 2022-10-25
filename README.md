@@ -42,7 +42,7 @@ Install requirements.txt in the virtual environment (python 3+)
 pip install -r tango_role/requirements.txt
 ```
 
-## Running from the tango_role
+## Use tango_role
 
 | Task Description | Tag | Var(s) Required |
 | --- | --- | --- |
@@ -54,17 +54,18 @@ pip install -r tango_role/requirements.txt
 | Describe an Account | describe_account | account |
 | Register a Credit Card to a Customer/Account | register_credit_card | see tango_role/vars/main.yml |
 
-Run the Ansible Playbook with tags targeting what action(s) you want to take.
+
+###Run the Ansible Playbook with tags targeting what action(s) you want to take.
 
 ```
 ansible-playbook runner.yml --tags "get_customers,create_customer”
 ```
 
-Variables can be defined in tango/tango_role/vars/main.yml
+###Variables can be defined in tango/tango_role/vars/main.yml
 
 - These variables are consumed by the ansible tasks that are ran
 
-Variables can (optionally) be defined via command line as extra vars
+###Variables can (optionally) be defined via command line as extra vars
 
 ```
 ansible-playbook runner.yml -e "customer_id=random_customer_id" --tags describe_customer
@@ -72,10 +73,3 @@ ansible-playbook runner.yml -e "customer_id=random_customer_id" --tags describe_
 
 - When passed in via command line , these take the highest precedence and override ALL other variables
     - See [Ansible Variable Precedence Documentation](https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#understanding-variable-precedence)
-
-### Running outside of tango_role (this is more for local testing / seeing what’s in the roles)
-
-```
-cd tango/ansible
-ansible-playbook main.yml
-```
