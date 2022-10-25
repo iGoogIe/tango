@@ -2,7 +2,7 @@
 
 ### Tango Ansible Project
 
-This was initially written to learn Tango’s RaaS API. It provides a way to interact with Tango’s Sandbox API via Ansible (leveraging Python Action Plugins)
+Provides a way to interact with Tango’s Sandbox API via Ansible (leveraging Python Action Plugins)
 
 ### Tango Documentation
 
