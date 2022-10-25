@@ -1,4 +1,4 @@
-# tango_role
+# Tango POC
 Provides a way to interact with Tango’s Sandbox API via Ansible (leveraging Python Action Plugins)
 
 ### Tango Documentation
