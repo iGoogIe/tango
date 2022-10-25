@@ -1,5 +1,8 @@
 # Tango POC
-Provides a way to interact with Tango’s Sandbox API via Ansible (leveraging Python Action Plugins)
+
+### Tango Ansible Project
+
+This was initially written to learn Tango’s RaaS API. It provides a way to interact with Tango’s Sandbox API via Ansible (leveraging Python Action Plugins)
 
 ### Tango Documentation
 
@@ -41,13 +44,17 @@ pip install -r tango_role/requirements.txt
 
 ## Running from the tango_role
 
-- Available tasks
-    - 
-    
-    | Task | Tag |
-    | --- | --- |
-    | get_customers.yml | get_customers |
-    |  |  |
+| Task Description | Tag | Var(s) Required |
+| --- | --- | --- |
+| Get Output of Total Customers | get_customers | N/A |
+| Create a Customer | create_customer | customer_id | display_name |
+| Describe a Customer | describe_customer | customer_id |
+| Create an Account (under a Customer) | create_account | customer_id | account | email |
+| Get Output of Total Accounts | get_accounts | N/A |
+| Describe an Account | describe_account | account |
+| Register a Credit Card to a Customer/Account | register_credit_card | see tango_role/vars/main.yml |
+
+Run the Ansible Playbook with tags targeting what action(s) you want to take.
 
 ```
 ansible-playbook runner.yml --tags "get_customers,create_customer”
@@ -60,10 +67,10 @@ Variables can be defined in tango/tango_role/vars/main.yml
 Variables can (optionally) be defined via command line as extra vars
 
 ```
-ansible-playbook runner.yml -e "customer_id=random_customer_id"
+ansible-playbook runner.yml -e "customer_id=random_customer_id" --tags describe_customer
 ```
 
-- When passed in via command line , these override ALL other variables
+- When passed in via command line , these take the highest precedence and override ALL other variables
     - See [Ansible Variable Precedence Documentation](https://docs.ansible.com/ansible/latest/user_guide/playbooks_variables.html#understanding-variable-precedence)
 
 ### Running outside of tango_role (this is more for local testing / seeing what’s in the roles)
